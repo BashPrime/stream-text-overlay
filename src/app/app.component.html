@@ -1,2 +1,2 @@
-<!-- <button (click)="toggle()">Click me!</button> -->
-<p [@visibility]="visible ? 'visible' : 'hidden'" (@visibility.done)="onDone($event)" class="animText">Count is now {{ count }}!</p>
+<p [@visibility]="visible ? 'visible' : 'hidden'" (@visibility.done)="onDone($event)" class="animText">
+  {{ config?.textItems[currentIndex] }}</p>

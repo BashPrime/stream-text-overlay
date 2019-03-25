@@ -6,7 +6,10 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import { HttpClient } from '@angular/common/http';
 import { interval } from 'rxjs';
+import { AppService } from './services/app.service';
+import { OverlayConfig } from './common/OverlayConfig';
 
 @Component({
   selector: 'app-root',
@@ -30,12 +33,18 @@ import { interval } from 'rxjs';
   ],
 })
 export class AppComponent {
+  config: OverlayConfig;
   visible = true;
-  count = 0;
+  currentIndex = 0;
+
+  constructor(private appService: AppService) { }
 
   ngOnInit() {
-    interval(5000).subscribe(x => {
-      this.toggle();
+    this.appService.getOverlayConfig().subscribe(res => {
+      this.config = res;
+      interval(5000).subscribe(x => {
+        this.toggle();
+      });
     });
   }
 
@@ -46,7 +55,7 @@ export class AppComponent {
   onDone(event) {
     // We want to immediately show the text again upon hiding
     if (event.toState === 'hidden') {
-      this.count++;
+      this.currentIndex = (this.currentIndex < this.config.textItems.length - 1) ? this.currentIndex + 1 : 0;
       this.toggle();
     }
   }
