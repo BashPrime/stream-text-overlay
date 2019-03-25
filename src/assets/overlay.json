@@ -1,5 +1,6 @@
 {
     "interval": 10,
     "textItems": [
+      "To add your own text snippets, change the \"textItems\" field in /assets/overlay.json"
     ]
 }
