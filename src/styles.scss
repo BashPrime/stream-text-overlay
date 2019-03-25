@@ -1,14 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Barlow');
 
 html {
-    body {
-        height: 100%;
-    }
-    
     font-family: Barlow !important;
 }
 
 body {
+    margin: 0;
     background-color: #202020;
     color: #fff;
 }

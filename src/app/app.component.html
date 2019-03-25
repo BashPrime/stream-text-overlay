@@ -1,2 +1,4 @@
-<p [@visibility]="visible ? 'visible' : 'hidden'" (@visibility.done)="onDone($event)" class="animText">
-  {{ config?.textItems[currentIndex] }}</p>
+<div class="text-container">
+  <p [@visibility]="visible ? 'visible' : 'hidden'" (@visibility.done)="onDone($event)" class="animText">
+    {{ config?.textItems[currentIndex] }}</p>
+</div>

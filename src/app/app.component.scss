@@ -1,5 +1,11 @@
+.text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 p.animText {
-    margin: 0;
-    font-size: 3rem;
+    font-size: 3vw;
     text-align: center;
 }

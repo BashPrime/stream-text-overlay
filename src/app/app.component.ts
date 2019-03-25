@@ -42,9 +42,14 @@ export class AppComponent {
   ngOnInit() {
     this.appService.getOverlayConfig().subscribe(res => {
       this.config = res;
-      interval(5000).subscribe(x => {
-        this.toggle();
-      });
+
+      // Don't use toggle interval for single element arrays
+      if (this.config.textItems.length > 1) {
+        // Convert seconds to milliseconds
+        interval(this.config.interval * 1000).subscribe(x => {
+          this.toggle();
+        });
+      }
     });
   }
 
